@@ -95,15 +95,15 @@ int main()
 {
     KeyValue k;
     string delimiter = " ";
-    k.load(delimiter); // <-- Load ONCE at the very beginning
+    k.load(delimiter); 
 
-    while (true) // <-- Add an infinite loop to keep the program running
+    while (true) 
     {
-        cout << "> "; // Add a prompt for the user
+        cout << "> "; 
         string user_input;
-        getline(cin, user_input); // <-- Read input INSIDE the loop
+        getline(cin, user_input); 
 
-        // --- Your string parsing logic ---
+        
         vector<string> tokens;
         size_t start = 0;
         size_t end = user_input.find(delimiter);
@@ -114,12 +114,12 @@ int main()
             end = user_input.find(delimiter, start);
         }
         tokens.push_back(user_input.substr(start));
-        // --- End of parsing logic ---
+        
 
-        // Check for empty input
+        
         if (tokens.empty() || tokens[0] == "")
         {
-            continue; // Go to the next loop iteration
+            continue; 
         }
 
         // --- Command handling ---
@@ -142,7 +142,7 @@ int main()
             }
             else
             {
-                k.get(tokens[1]); // This call was in the wrong place
+                k.get(tokens[1]); 
             }
         }
         else if (tokens[0] == "SAVE") // <-- ADD THIS
@@ -151,7 +151,7 @@ int main()
         }
         else if (tokens[0] == "EXIT") // <-- ADD THIS
         {
-            k.save(); // Good practice to save on exit
+            k.save(); 
             break;    // Exit the while loop
         }
         else
